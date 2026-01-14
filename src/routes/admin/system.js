@@ -128,7 +128,7 @@ router.get('/check-updates', authenticateAdmin, async (req, res) => {
     }
 
     // 请求 GitHub API
-    const githubRepo = 'wei-shaw/claude-relay-service'
+    const githubRepo = 'meglinge/claude-relay-service'
     const response = await axios.get(`https://api.github.com/repos/${githubRepo}/releases/latest`, {
       headers: {
         Accept: 'application/vnd.github.v3+json',
@@ -179,10 +179,10 @@ router.get('/check-updates', authenticateAdmin, async (req, res) => {
       code: error.code,
       response: error.response
         ? {
-            status: error.response.status,
-            statusText: error.response.statusText,
-            data: error.response.data
-          }
+          status: error.response.status,
+          statusText: error.response.statusText,
+          data: error.response.data
+        }
         : null,
       request: error.request ? 'Request was made but no response received' : null
     }
